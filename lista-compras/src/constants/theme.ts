@@ -1,13 +1,10 @@
 /**
  * Tema da app: tokens de cor do Material Design 3, retirados dos mockups
- * (Fresh Harvest para o modo claro, Nocturne Harvest para o modo escuro).
+ * (Fresh Harvest para o modo claro, Nocturne Harvest para o modo escuro),
+ * mais as escalas de espaçamento e de cantos arredondados.
  *
  * Convenção: `onX` é a cor a usar POR CIMA de `X` (ex.: texto dentro de um botão primary).
  */
-
-import '@/global.css';
-
-import { Platform } from 'react-native';
 
 export const Colors = {
   light: {
@@ -94,41 +91,25 @@ export const Colors = {
 
 export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
 
-// Mantido do template; é substituído pela Plus Jakarta Sans na subtarefa 1.4.2.
-export const Fonts = Platform.select({
-  ios: {
-    /** iOS `UIFontDescriptorSystemDesignDefault` */
-    sans: 'system-ui',
-    /** iOS `UIFontDescriptorSystemDesignSerif` */
-    serif: 'ui-serif',
-    /** iOS `UIFontDescriptorSystemDesignRounded` */
-    rounded: 'ui-rounded',
-    /** iOS `UIFontDescriptorSystemDesignMonospaced` */
-    mono: 'ui-monospace',
-  },
-  default: {
-    sans: 'normal',
-    serif: 'serif',
-    rounded: 'normal',
-    mono: 'monospace',
-  },
-  web: {
-    sans: 'var(--font-display)',
-    serif: 'var(--font-serif)',
-    rounded: 'var(--font-rounded)',
-    mono: 'var(--font-mono)',
-  },
-});
-
+// Espaçamentos (grelha de 4/8 dp do design).
 export const Spacing = {
-  half: 2,
-  one: 4,
-  two: 8,
-  three: 16,
-  four: 24,
-  five: 32,
-  six: 64,
+  xxs: 4,
+  xs: 8,
+  sm: 12,
+  md: 16,
+  lg: 20,
+  xl: 24,
+  xxl: 32,
+  xxxl: 40,
 } as const;
 
-export const BottomTabInset = Platform.select({ ios: 50, android: 80 }) ?? 0;
-export const MaxContentWidth = 800;
+// Cantos arredondados: `base` é o valor por defeito do design (inputs, badges);
+// `lg` são os cartões; `xl` são sheets e blocos de destaque; `full` são pílulas.
+export const Radius = {
+  sm: 4,
+  base: 8,
+  md: 12,
+  lg: 16,
+  xl: 24,
+  full: 9999,
+} as const;
