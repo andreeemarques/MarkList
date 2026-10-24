@@ -1,6 +1,8 @@
 /**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://unistyl.es/), etc.
+ * Tema da app: tokens de cor do Material Design 3, retirados dos mockups
+ * (Fresh Harvest para o modo claro, Nocturne Harvest para o modo escuro).
+ *
+ * Convenção: `onX` é a cor a usar POR CIMA de `X` (ex.: texto dentro de um botão primary).
  */
 
 import '@/global.css';
@@ -9,23 +11,90 @@ import { Platform } from 'react-native';
 
 export const Colors = {
   light: {
-    text: '#000000',
-    background: '#ffffff',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    textSecondary: '#60646C',
+    background: '#faf8ff',
+    onBackground: '#131b2e',
+
+    surface: '#faf8ff',
+    onSurface: '#131b2e',
+    onSurfaceVariant: '#3d4a42',
+    surfaceContainerLowest: '#ffffff',
+    surfaceContainerLow: '#f2f3ff',
+    surfaceContainer: '#eaedff',
+    surfaceContainerHigh: '#e2e7ff',
+    surfaceContainerHighest: '#dae2fd',
+
+    outline: '#6d7a72',
+    outlineVariant: '#bccac0',
+
+    primary: '#006948',
+    onPrimary: '#ffffff',
+    primaryContainer: '#00855d',
+    onPrimaryContainer: '#f5fff7',
+    primaryFixed: '#85f8c4',
+
+    secondary: '#855300',
+    onSecondary: '#ffffff',
+    secondaryContainer: '#fea619',
+    onSecondaryContainer: '#684000',
+
+    tertiary: '#006194',
+    onTertiary: '#ffffff',
+    tertiaryContainer: '#007bb9',
+    onTertiaryContainer: '#fdfcff',
+
+    error: '#ba1a1a',
+    onError: '#ffffff',
+    errorContainer: '#ffdad6',
+    onErrorContainer: '#93000a',
+
+    inverseSurface: '#283044',
+    inverseOnSurface: '#eef0ff',
   },
   dark: {
-    text: '#ffffff',
-    background: '#000000',
-    backgroundElement: '#212225',
-    backgroundSelected: '#2E3135',
-    textSecondary: '#B0B4BA',
+    background: '#0b1326',
+    onBackground: '#dae2fd',
+
+    surface: '#0b1326',
+    onSurface: '#dae2fd',
+    onSurfaceVariant: '#bbcabf',
+    surfaceContainerLowest: '#060e20',
+    surfaceContainerLow: '#131b2e',
+    surfaceContainer: '#171f33',
+    surfaceContainerHigh: '#222a3d',
+    surfaceContainerHighest: '#2d3449',
+
+    outline: '#86948a',
+    outlineVariant: '#3c4a42',
+
+    primary: '#4edea3',
+    onPrimary: '#003824',
+    primaryContainer: '#10b981',
+    onPrimaryContainer: '#00422b',
+    primaryFixed: '#6ffbbe',
+
+    secondary: '#45dfa4',
+    onSecondary: '#003825',
+    secondaryContainer: '#00bd85',
+    onSecondaryContainer: '#00452e',
+
+    tertiary: '#68dba9',
+    onTertiary: '#003825',
+    tertiaryContainer: '#3eb686',
+    onTertiaryContainer: '#00422c',
+
+    error: '#ffb4ab',
+    onError: '#690005',
+    errorContainer: '#93000a',
+    onErrorContainer: '#ffdad6',
+
+    inverseSurface: '#dae2fd',
+    inverseOnSurface: '#283044',
   },
 } as const;
 
 export type ThemeColor = keyof typeof Colors.light & keyof typeof Colors.dark;
 
+// Mantido do template; é substituído pela Plus Jakarta Sans na subtarefa 1.4.2.
 export const Fonts = Platform.select({
   ios: {
     /** iOS `UIFontDescriptorSystemDesignDefault` */

@@ -13,7 +13,7 @@ export function PlaceholderScreen({ title }: PlaceholderScreenProps) {
   return (
     <ThemedView style={styles.container}>
       <ThemedText type="subtitle">{title}</ThemedText>
-      <ThemedText themeColor="textSecondary">Ecrã em construção</ThemedText>
+      <ThemedText themeColor="onSurfaceVariant">Ecrã em construção</ThemedText>
     </ThemedView>
   );
 }

@@ -8,11 +8,12 @@ export default function AppTabs() {
   // `md` é o ícone usado no Android (nomes Material Symbols).
   // `sf` é o equivalente iOS: o TypeScript exige dois tipos de ícone,
   // mas a app só tem Android como alvo, por isso o iOS é ignorado.
+  // As cores finais da barra (pílula verde) ficam para a subtarefa 1.4.4.
   return (
     <NativeTabs
-      backgroundColor={theme.background}
-      indicatorColor={theme.backgroundElement}
-      labelStyle={{ selected: { color: theme.text } }}>
+      backgroundColor={theme.surface}
+      indicatorColor={theme.surfaceContainerHigh}
+      labelStyle={{ selected: { color: theme.onSurface } }}>
       <NativeTabs.Trigger name="index">
         <NativeTabs.Trigger.Label>Início</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon sf="house" md="home" />
