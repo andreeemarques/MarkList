@@ -1,5 +1,6 @@
 import { NativeTabs } from 'expo-router/native-tabs';
 
+import { FontFamily } from '@/constants/fonts';
 import { useTheme } from '@/hooks/use-theme';
 
 export default function AppTabs() {
@@ -8,12 +9,15 @@ export default function AppTabs() {
   // `md` é o ícone usado no Android (nomes Material Symbols).
   // `sf` é o equivalente iOS: o TypeScript exige dois tipos de ícone,
   // mas a app só tem Android como alvo, por isso o iOS é ignorado.
-  // As cores finais da barra (pílula verde) ficam para a subtarefa 1.4.4.
   return (
     <NativeTabs
-      backgroundColor={theme.surface}
-      indicatorColor={theme.surfaceContainerHigh}
-      labelStyle={{ selected: { color: theme.onSurface } }}>
+      backgroundColor={theme.surfaceContainerLowest}
+      indicatorColor={theme.navIndicator}
+      iconColor={{ default: theme.onSurfaceVariant, selected: theme.navActiveContent }}
+      labelStyle={{
+        default: { color: theme.onSurfaceVariant, fontFamily: FontFamily.semiBold },
+        selected: { color: theme.navActiveContent, fontFamily: FontFamily.bold },
+      }}>
       <NativeTabs.Trigger name="index">
         <NativeTabs.Trigger.Label>Início</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon sf="house" md="home" />

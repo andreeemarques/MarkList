@@ -46,6 +46,10 @@ export const Colors = {
 
     inverseSurface: '#283044',
     inverseOnSurface: '#eef0ff',
+
+    // Barra de separadores
+    navIndicator: '#85f8c4',
+    navActiveContent: '#005137',
   },
   dark: {
     background: '#0b1326',
@@ -86,6 +90,10 @@ export const Colors = {
 
     inverseSurface: '#dae2fd',
     inverseOnSurface: '#283044',
+
+    // Barra de separadores
+    navIndicator: '#17383c',
+    navActiveContent: '#4edea3',
   },
 } as const;
 
