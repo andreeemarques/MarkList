@@ -1,9 +1,11 @@
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
+import { SQLiteProvider } from 'expo-sqlite';
+import { Suspense, useEffect } from 'react';
 
 import { fontAssets } from '@/constants/fonts';
+import { DATABASE_NAME, initializeDatabase } from '@/database/database';
 
 // Mantém o splash visível até as fontes estarem carregadas.
 SplashScreen.preventAutoHideAsync();
@@ -24,5 +26,11 @@ export default function RootLayout() {
     return null;
   }
 
-  return <Stack screenOptions={{ headerShown: false }} />;
+  return (
+    <Suspense fallback={null}>
+      <SQLiteProvider databaseName={DATABASE_NAME} onInit={initializeDatabase} useSuspense>
+        <Stack screenOptions={{ headerShown: false }} />
+      </SQLiteProvider>
+    </Suspense>
+  );
 }
